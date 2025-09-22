@@ -1,0 +1,1 @@
+These release notes are included as part of the build process. Edit ReleaseNotes.txt to change this text.
