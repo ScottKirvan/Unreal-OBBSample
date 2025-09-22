@@ -2,12 +2,14 @@
 REM ===============================================================
 REM Copyright (c) Meta Platforms, Inc. and affiliates.
 REM All rights reserved.
+REM Modifications Copyright (c) 2025, Scott Kirvan, Aemulus-XR
 REM
 REM This source code is licensed under the MIT license found in the
 REM LICENSE file in the root directory of this source tree.
 REM ===============================================================
 
 REM ===================================================================
+REM file:: package_project_for_upload.bat
 REM Automated Version Increment and Project Packaging Script
 REM
 REM This batch file automates two key processes for project shipping:
@@ -43,7 +45,7 @@ for /F "delims=" %%A in ('echo prompt $E^| cmd') do set "ESC=%%A"
 echo %ESC%[33m!!!! WARNING: the first time this runs it can potentially take a while building on a single machine. you may see warnings about workers waiting for results, please be patient !!!!%ESC%[0m
 
 "%RUNAUT_BAT%" BuildCookRun ^
-    -project="%~dp0OBBSample.uproject" ^
+    -project="%~dp0%UNREAL_UPROJECT_NAME%.uproject" ^
     -platform=Android ^
     -cookflavor=ASTC ^
     -clientconfig=Shipping ^
