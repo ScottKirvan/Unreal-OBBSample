@@ -39,7 +39,7 @@ SET MY_RELEASE_CHANNEL=ALPHA
 SET "MY_SHIPPING_DIR=%~dp0Shipping"
 
 REM Path to your release notes text file, e.g. ReleaseNotes.txt
-SET MY_RELEASE_NOTES="ReleaseNotes.txt"
+SET "MY_RELEASE_NOTES=ReleaseNotes.txt"
 SET MY_AGE_GROUP=TEENS_AND_ADULTS
 
 REM ===============================================================
@@ -154,15 +154,15 @@ if "%MY_RELEASE_NOTES%"=="" (
 )
 
 if not exist "%MY_RELEASE_NOTES%" (
-    echo Config Error: Could not find %MY_RELEASE_NOTES%. Check the path in %~f0.
+    echo Config Error: Could not find "%MY_RELEASE_NOTES%". Check the path in %~f0.
     EXIT /B 1
 )
 
 REM parse the release notes file, escaping quotes and newlines
-for /f "delims=" %%I in ('powershell -NoProfile -Command "$content = Get-Content -Path %MY_RELEASE_NOTES% -Raw; $content = $content.Replace(\"\\'\", \"\\\\'\").Replace(\"\"\"\", \"\\\"\"\").Replace([Environment]::NewLine, \"\\n\"); Write-Output $content"') do set "RELEASE_NOTES=%%I"
+for /f "delims=" %%I in ('powershell -NoProfile -Command "$content = Get-Content -Path "%MY_RELEASE_NOTES%" -Raw; $content = $content.Replace(\"\\'\", \"\\\\'\").Replace(\"\"\"\", \"\\\"\"\").Replace([Environment]::NewLine, \"\\n\"); Write-Output $content"') do set "RELEASE_NOTES=%%I"
 
 if "%RELEASE_NOTES%"=="" (
-    echo Config Error: cwError parsing MY_RELEASE_NOTES in %~f0.  File empty?
+    echo Config Error: Error parsing MY_RELEASE_NOTES in %~f0.  File empty?
     EXIT /B 1
 )
 
