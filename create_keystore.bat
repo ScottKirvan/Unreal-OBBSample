@@ -1,4 +1,4 @@
-@echo off
+REM @echo off
 REM ===============================================================
 REM Copyright (c) Meta Platforms, Inc. and affiliates.
 REM All rights reserved.
@@ -30,5 +30,5 @@ if not exist "Build\Android\" (
 
 if not exist "Build\Android\%MY_KEYSTORE%" (
     echo "Keystore not found. Creating new keystore in Build\Android\%MY_KEYSTORE%"
-    REM REM "%KEYTOOL_PATH%" -genkey -v -keystore Build\Android\%MY_KEYSTORE% -alias %MY_KEYSTORE_ALIAS% -keyalg RSA -keysize 2048 -validity 10000 -dname "%MY_KEYSTORE_DNAME%" -storepass %MY_KEYSTORE_PASSWORD% -keypass %MY_KEYSTORE_PASSWORD%
+    "%KEYTOOL_PATH%" -genkey -v -keystore Build\Android\%MY_KEYSTORE% -alias %MY_KEYSTORE_ALIAS% -keyalg RSA -keysize 2048 -validity 10000 -dname "%MY_KEYSTORE_DNAME%" -storepass %MY_KEYSTORE_PASSWORD% -keypass %MY_KEYSTORE_PASSWORD%
 )
