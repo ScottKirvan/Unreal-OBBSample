@@ -42,12 +42,6 @@ REM REM )
 
 REM REM "%KEYTOOL_PATH%" -genkey -v -keystore Build\Android\%MY_KEYSTORE% -alias %MY_KEYSTORE_ALIAS% -keyalg RSA -keysize 2048 -validity 10000 -dname "%MY_KEYSTORE_DNAME%" -storepass %MY_KEYSTORE_PASSWORD% -keypass %MY_KEYSTORE_PASSWORD%
 
-REM check if MY_PACKAGE_NAME is defined
-if "%MY_PACKAGE_NAME%"=="" (
-    echo "MY_PACKAGE_NAME is not defined"
-    EXIT /B 1
-)
-
 if not exist "%DEFAULT_ENGINE_INI_FILE%" (
     echo Could not find DefaultEngine.ini.
     EXIT /B 1
