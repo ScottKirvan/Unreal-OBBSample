@@ -27,7 +27,7 @@ call "%~dp0config.bat" || (
     EXIT /B 1
 )
 
-call "%~dp0scripts\create_keystore.bat" || (
+call "%~dp0create_keystore.bat" || (
     EXIT /B 1
 )
 
